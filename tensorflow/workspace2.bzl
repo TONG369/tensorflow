@@ -10,6 +10,7 @@ load("//third_party/nccl:nccl_configure.bzl", "nccl_configure")
 load("//third_party/git:git_configure.bzl", "git_configure")
 load("//third_party/py:python_configure.bzl", "python_configure")
 load("//third_party/systemlibs:syslibs_configure.bzl", "syslibs_configure")
+load("//third_party/toolchains/riscv64:riscv64_compiler_configure.bzl", "riscv64_compiler_configure")
 load("//tensorflow/tools/toolchains:cpus/aarch64/aarch64_compiler_configure.bzl", "aarch64_compiler_configure")
 load("//tensorflow/tools/toolchains:cpus/arm/arm_compiler_configure.bzl", "arm_compiler_configure")
 load("//tensorflow/tools/toolchains/embedded/arm-linux:arm_linux_toolchain_configure.bzl", "arm_linux_toolchain_configure")
@@ -122,6 +123,12 @@ def _tf_toolchains():
         remote_config_repo_arm = "../arm_compiler",
         remote_config_repo_aarch64 = "../aarch64_compiler",
     )
+    
+    riscv64_compiler_configure(
+        name = "local_config_riscv64_compiler",
+        build_file = "//third_party/toolchains/riscv64:BUILD",
+        remote_config_repo_riscv64 = "../riscv64_compiler",
+    )
 
     # Load aarch64 toolchain
     aarch64_compiler_configure()
@@ -186,6 +193,7 @@ def _tf_repositories():
     tf_http_archive(
         name = "mkl_dnn_v1",
         build_file = "//third_party/mkl_dnn:mkldnn_v1.BUILD",
+	patch_file = ["//third_party/mkl_dnn:0001-new-error-impossible-constraint-in-asm-and-SYS_arch.patch"],
         sha256 = "a50993aa6265b799b040fe745e0010502f9f7103cc53a9525d59646aef006633",
         strip_prefix = "oneDNN-2.7.3",
         urls = tf_mirror_urls("https://github.com/oneapi-src/oneDNN/archive/refs/tags/v2.7.3.tar.gz"),

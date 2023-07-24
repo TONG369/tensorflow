@@ -1,0 +1,114 @@
+package(default_visibility = ['//visibility:public'])
+
+filegroup(
+  name = 'gcc',
+  srcs = [
+    'usr/bin/riscv64-linux-gnu-gcc',
+  ],
+)
+
+filegroup(
+  name = 'ar',
+  srcs = [
+    'riscv64-linux-gnu-ar',
+  ],
+)
+
+filegroup(
+  name = 'ld',
+  srcs = [
+    'riscv64-linux-gnu-ld',
+  ],
+)
+
+filegroup(
+  name = 'nm',
+  srcs = [
+    'riscv64-linux-gnu-nm',
+  ],
+)
+
+filegroup(
+  name = 'objcopy',
+  srcs = [
+    'riscv64-linux-gnu-objcopy',
+  ],
+)
+
+filegroup(
+  name = 'objdump',
+  srcs = [
+    'riscv64-linux-gnu-objdump',
+  ],
+)
+
+filegroup(
+  name = 'strip',
+  srcs = [
+    'riscv64-linux-gnu-strip',
+  ],
+)
+
+filegroup(
+  name = 'as',
+  srcs = [
+    'riscv64-linux-gnu-as',
+  ],
+)
+
+filegroup(
+  name = 'compiler_pieces',
+  srcs = glob([
+      "include/**",
+  ]),
+)
+
+
+#filegroup(
+#  name = 'compiler_pieces',
+#  path = '/usr/riscv64-linux-gnu/include/stdc-predef.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/atomic',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/bits/atomic_base.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/riscv64-linux-gnu/bits/c++config.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/riscv64-linux-gnu/bits/os_defines.h',
+#  path = '/usr/riscv64-linux-gnu/include/features.h',
+#  path = '/usr/riscv64-linux-gnu/include/sys/cdefs.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/wordsize.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/long-double.h',
+#  path = '/usr/riscv64-linux-gnu/include/gnu/stubs.h',
+#  path = '/usr/riscv64-linux-gnu/include/gnu/stubs-lp64d.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/riscv64-linux-gnu/bits/cpu_defines.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/pstl/pstl_config.h',
+#  path = '/usr/lib/gcc-cross/riscv64-linux-gnu/9/include/stdint.h',
+#  path = '/usr/riscv64-linux-gnu/include/stdint.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/libc-header-start.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/types.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/timesize.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/typesizes.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/time64.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/wchar.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/stdint-intn.h',
+#  path = '/usr/riscv64-linux-gnu/include/bits/stdint-uintn.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/bits/atomic_lockfree_defines.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/bits/move.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/bits/concept_check.h',
+#  path = '/usr/riscv64-linux-gnu/include/c++/9/type_traits',
+#  
+#)
+
+
+
+
+filegroup(
+  name = 'compiler_components',
+  srcs = [
+    ':gcc',
+    ':ar',
+    ':ld',
+    ':nm',
+    ':objcopy',
+    ':objdump',
+    ':strip',
+    ':as',
+  ],
+)

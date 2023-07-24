@@ -266,6 +266,11 @@ config_setting(
     visibility = ["//visibility:public"],
 )
 
+config_setting(
+    name = "linux_riscv64",
+    values = {"cpu": "riscv64"},
+    visibility = ["//visibility:public"],
+
 selects.config_setting_group(
     name = "linux_x86_64_with_onednn_v2",
     match_all = [

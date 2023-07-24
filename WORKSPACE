@@ -86,3 +86,10 @@ tf_workspace1()
 load("@//tensorflow:workspace0.bzl", "tf_workspace0")
 
 tf_workspace0()
+
+new_local_repository(
+    name ="riscv64_compiler",   
+    path ="/usr/riscv64-linux-gnu/",
+    build_file = "//:BUILD.riscv64_compiler",
+)
+
