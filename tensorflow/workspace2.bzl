@@ -908,6 +908,7 @@ def _tf_repositories():
     tf_http_archive(
         name = "io_bazel_rules_go",
         sha256 = "16e9fca53ed6bd4ff4ad76facc9b7b651a89db1689a2877d6fd7b82aa824e366",
+	patch_file = ["//third_party:0001-hardcode-go-SDKS.patch"],
         urls = tf_mirror_urls("https://github.com/bazelbuild/rules_go/releases/download/v0.34.0/rules_go-v0.34.0.zip"),
     )
 
@@ -917,7 +918,7 @@ def _tf_repositories():
         strip_prefix = "upb-9effcbcb27f0a665f9f345030188c0b291e32482",
         patch_file = ["//third_party/grpc:upb_platform_fix.patch"],
         urls = tf_mirror_urls("https://github.com/protocolbuffers/upb/archive/9effcbcb27f0a665f9f345030188c0b291e32482.tar.gz"),
-    )
+i    )
 
     tf_http_archive(
         name = "com_github_glog_glog",
